@@ -24,8 +24,8 @@ const TOTAL_QUESTIONS = questions_array.length;
 
 const Quizes = () => {
   const [questions, setQuestions] = useState(questions_array);
-  const [number, setNumber] = useState(0);
-  const [gameOver, setGameOver] = useState(true);
+  const [number, setNumber] = useState(-1);
+  const [gameOver, setGameOver] = useState(false);
   const [personality, setPersonality] = useState("Not Yet Decided");
   const [userAnswers, setUserAnswers] = useState([]);
 
@@ -54,26 +54,42 @@ const Quizes = () => {
     }
   };
 
-  const recordAnswer = () => {};
+  const recordAnswer = (e) => {
+    if (!gameOver) {
+      const answer = e.currentTarget.value;
+      setUserAnswers((prev) => [...prev, answer]);
+    }
+  };
+
   return (
     <>
       <GlobalStyle />
       <Wrapper>
         <h1>Quien Eres?</h1>
-        <button className="start">Start</button>
-
-        <QuestionCard
-          questionNr={number + 1}
-          totalQuestions={TOTAL_QUESTIONS}
-          question={questions[number].question}
-          answers={questions[number].answers}
-        ></QuestionCard>
-        <button className="next" onClick={nextQuestions}>
-          Next
-        </button>
-        <button className="next" onClick={previousQuestion}>
-          Previous
-        </button>
+        {gameOver || number === -1 ? (
+          <button className="start" onClick={startQuiz}>
+            Start
+          </button>
+        ) : null}
+        {gameOver ? <p className="score"> Personality: {personality}</p> : null}
+        {!gameOver && number > -1 ? (
+          <>
+            <QuestionCard
+              questionNr={number + 1}
+              totalQuestions={TOTAL_QUESTIONS}
+              question={questions[number].question}
+              answers={questions[number].answers}
+              userAnswers={userAnswers ? userAnswers[number] : undefined}
+              callback={recordAnswer}
+            ></QuestionCard>
+            <button className="next" onClick={nextQuestions}>
+              Next
+            </button>
+            <button className="next" onClick={previousQuestion}>
+              Previous
+            </button>
+          </>
+        ) : null}
       </Wrapper>
     </>
   );
