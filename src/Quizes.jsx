@@ -12,11 +12,35 @@ const questions_array = [
     ],
   },
   {
-    question: "Cuando has leido tu ultima libro",
+    question: "Cuando has leido tu ultima libro?",
     answers: [
       "En el segundario",
       "En el ultimo ano",
       "Estoy leyendo algo ahora",
+    ],
+  },
+  {
+    question: "Que opinas de leyes?",
+    answers: [
+      "Solo sigo las leyes cuando me benefican",
+      "Algunas leyes no tiene ningun sentido",
+      "Leyes siempre tienen sentido, y hay que obedecerlas",
+    ],
+  },
+  {
+    question: "Alguna vez has mentido?",
+    answers: [
+      "Si estoy en una situacion duro, y mentir me va ayudar, claro que si!",
+      "Si, pero siempre me siento malo. No me gusta enganar a la gente pero hago lo que tenga que hacer",
+      "Casi nunca miento. Tendria que ser una situacion muy muy grave",
+    ],
+  },
+  {
+    question: "Usarias las cosas de algiuen sin preguntarles?",
+    answers: [
+      "Claro que si! Lo que no sabe, no le va a lastimar",
+      "Si, pero solo si es de mi amigo",
+      "Siempre le preguntaria a menos que me dijeron explicamente que puedo usar lo que quiera cuando quiera",
     ],
   },
 ];
@@ -41,6 +65,14 @@ const Quizes = () => {
 
     if (nextQuestion === TOTAL_QUESTIONS) {
       setGameOver(true);
+      let sum = userAnswers.reduce((a, b) => parseInt(a) + parseInt(b), 0);
+      if (10 < sum && sum <= 15) {
+        setPersonality("No Picaro");
+      } else if (5 < sum && sum <= 10) {
+        setPersonality("Picaro");
+      } else {
+        setPersonality("Picarisimo");
+      }
     } else {
       setNumber(nextQuestion);
     }

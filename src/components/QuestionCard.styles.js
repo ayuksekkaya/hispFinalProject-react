@@ -24,11 +24,9 @@ export const ButtonWrapper = styled.div`
     width: 100%;
     height: 40px;
     margin: 5px 0;
-    background: ${({ correct, userClicked }) =>
-      correct
-        ? "linear-gradient(90deg, #56FFA4, #59BC86)"
-        : !correct && userClicked
-        ? "linear-gradient(90deg, #FF5656, #C16868)"
+    background: ${({ userClicked }) =>
+      userClicked
+        ? "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(69,9,121,1) 44%, rgba(0,212,255,1) 100%);"
         : "linear-gradient(90deg, #56ccff, #6eafb4)"};
     border: 3px solid #ffffff;
     box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.1);
