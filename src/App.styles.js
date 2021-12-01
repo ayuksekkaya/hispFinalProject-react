@@ -15,6 +15,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Catamaran', sans-serif;
     box-sizing: border-box;
   }
+
+  
 `;
 
 export const Wrapper = styled.div`
@@ -28,6 +30,10 @@ export const Wrapper = styled.div`
     color: black;
     font-size: 2rem;
     margin: 0;
+  }
+  .info {
+    color: black;
+    font-size: 1rem;
   }
   h1 {
     font-family: Fascinate Inline;

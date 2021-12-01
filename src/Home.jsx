@@ -1,12 +1,14 @@
 import React from "react";
-import { Image } from "react-bootstrap";
-import { Main } from "./App.styles";
+import "./index.css";
 
 const Home = () => (
   <React.Fragment>
-    <div className="d-flex vh-100">
+    <div className="d-flex vh-100 fade-in">
       <div className="d-flex w-100 justify-content-center align-self-center">
-        Hola! Bienvenidos a la clase!
+        Hola! Bienvenidos! <br />
+        Aqui pudes tomarse quizes. Para empezar hacer el click sobre "Quiz"{" "}
+        <br />
+        En el Navigation bar
       </div>
     </div>
   </React.Fragment>

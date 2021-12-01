@@ -11,7 +11,7 @@ const QuestionCard = ({
   return (
     <Wrapper>
       <p className="number">
-        Question:{questionNr}/{totalQuestions}
+        Pregunta:{questionNr}/{totalQuestions}
       </p>
       <p dangerouslySetInnerHTML={{ __html: question }} />
 

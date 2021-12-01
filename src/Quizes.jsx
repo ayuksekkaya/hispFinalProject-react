@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GlobalStyle, Wrapper } from "./App.styles";
 import QuestionCard from "./components/QuestionCard";
+import { Image } from "react-bootstrap";
 
 const questions_array = [
   {
@@ -52,12 +53,14 @@ const Quizes = () => {
   const [gameOver, setGameOver] = useState(false);
   const [personality, setPersonality] = useState("Not Yet Decided");
   const [userAnswers, setUserAnswers] = useState([]);
+  const [image, setImage] = useState("");
 
   const startQuiz = () => {
     setGameOver(false);
     setPersonality("Not Yet Decided");
     setNumber(0);
     setUserAnswers([]);
+    setImage("");
   };
 
   const nextQuestions = () => {
@@ -68,10 +71,13 @@ const Quizes = () => {
       let sum = userAnswers.reduce((a, b) => parseInt(a) + parseInt(b), 0);
       if (10 < sum && sum <= 15) {
         setPersonality("No Picaro");
+        setImage("../no_picaro.jpg");
       } else if (5 < sum && sum <= 10) {
         setPersonality("Picaro");
+        setImage("../picaro.jpg");
       } else {
         setPersonality("Picarisimo");
+        setImage("../el_picaro.jpg");
       }
     } else {
       setNumber(nextQuestion);
@@ -97,13 +103,24 @@ const Quizes = () => {
     <>
       <GlobalStyle />
       <Wrapper>
-        <h1>Quien Eres?</h1>
+        <h1>Averigue si eres un Picaro!</h1>
+        <p className="info">
+          {" "}
+          Cuando empiece, elige una opcion por cada pregunta. Una vez hayas
+          elegido, no puedes cambiar la selecion. <br></br>
+          Sigue hacer click sobre "siguiente" hasta que tengas el score.
+        </p>
         {gameOver || number === -1 ? (
           <button className="start" onClick={startQuiz}>
-            Start
+            Vaya
           </button>
         ) : null}
-        {gameOver ? <p className="score"> Personality: {personality}</p> : null}
+        {gameOver ? (
+          <>
+            <p className="score"> Personalidad: {personality}</p>
+            <Image src={image}></Image>
+          </>
+        ) : null}
         {!gameOver && number > -1 ? (
           <>
             <QuestionCard
@@ -115,10 +132,10 @@ const Quizes = () => {
               callback={recordAnswer}
             ></QuestionCard>
             <button className="next" onClick={nextQuestions}>
-              Next
+              Siguiente
             </button>
             <button className="next" onClick={previousQuestion}>
-              Previous
+              Anterior
             </button>
           </>
         ) : null}
