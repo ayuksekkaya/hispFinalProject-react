@@ -14,6 +14,7 @@ const App = () => (
       <Route path="/quizes" element={<QuizMain />} />
       <Route path="/picaroquiz" element={<Quiz />} />
       <Route path="/elHoyoQuiz" element={<Quiz />} />
+      <Route path="/refranesQuiz" element={<Quiz />} />
     </Routes>
   </Router>
 );

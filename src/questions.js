@@ -74,8 +74,49 @@ const questions_array = {
       answers: ["Un corporacion grande", "En una escuela", "En la biblioteca"],
     },
   ],
-  elhoyo_personalities: ["Imoguiri", "Trimagasi", "Goreng"],
-  elhoyo_images: ["imoguiri.jpg", "trimagasi.jpg", "goreng.jpg"],
+  elhoyo_personalities: ["Goreng", "Trimagasi", "Imoguiri"],
+  elhoyo_images: ["goreng.jpg", "trimagasi.jpg", "imoguiri.jpg"],
+
+  refranes: [
+    {
+      question: "Para coger peces...",
+      answers: [
+        "Hay que mojarse el culo",
+        "Hay que tener la caña",
+        "Hay que ir al rio",
+      ],
+    },
+    {
+      question: "Molino que no muele...",
+      answers: ["Algo le duele", "Hay que le duele", "tenga y dale"],
+    },
+    {
+      question: "De los oloers, el pan;...",
+      answers: [
+        "De los sabores, el sal.",
+        "De los  sabores, la especia.",
+        "De los vistos, el chocolate.",
+      ],
+    },
+    {
+      question: "Aceite de oliva...",
+      answers: [
+        "Todo el mal quita.",
+        "Hay que poner en la comida.",
+        "Viene de la oliva",
+      ],
+    },
+    {
+      question: "No comer ... es doble ahorrar",
+      answers: ["por no cagar", "y no beber", "por no crecer"],
+    },
+  ],
+  refranes_personalities: [
+    "Necesitas Estuidar Más, hombre!",
+    "Eres Creativo Aunque No Correcto",
+    "Vaya! Sabes Español!",
+  ],
+  refranes_images: ["estudiar.jpg", "eeeeh.jpg", "sucess.jpg"],
 };
 
 export default questions_array;
